@@ -59,6 +59,8 @@
 #introduction-body{
     text-align: center;
     padding: 10px;
+    background-color: #110C11;
+    color: wheat;
 }
 
 /* Profile */
@@ -94,13 +96,25 @@ h2{
     text-align: center;
 }
 
+/* Experience */
+.carousel-item{
+    background-color: #110C11;
+    color: white;
+}
+
+.card{
+    color: #110C11;
+    width: 80%;
+    margin: auto;
+}
+
 /* Extra */
 html,body{
     height: 100%;
     width: 100%;
 }
 
-#profile,#introduction,#language-body{
+#profile,#introduction,#language-body,#experience{
     width: 100%;
 }
 
@@ -108,7 +122,7 @@ html,body{
     height: 100%;
 }
 
-.active{
+.active-nav{
     background-color: wheat;
     color: #110C11;
 }

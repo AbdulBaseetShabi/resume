@@ -4,8 +4,8 @@ $(document).ready(function(){
     // Highlight Active Navigation Item
     $(".navigation-item").click(function(e) {
         e.preventDefault();
-        $(".navigation-item").removeClass("active");
-        $(this).addClass("active");
+        $(".navigation-item").removeClass("active-nav");
+        $(this).addClass("active-nav");
         scrollToHref($(this).attr("href"));  
     });
 
@@ -69,8 +69,9 @@ $(document).ready(function(){
 });
 
 //ANGULAR
-angular.module("myApp",[]).controller("ProfileController",
-    function($scope){
+var app = angular.module("myApp",[]);
+app.controller("ProfileController",
+    function($scope) {
         $scope.languages = getLanguages();
         $scope.tools = getTools();
         $scope.concepts = getConcepts();
@@ -138,6 +139,30 @@ angular.module("myApp",[]).controller("ProfileController",
 
         function getConcepts() {
             return [];
+        }
+    }
+);
+
+app.controller('ExperienceController',
+    function($scope) {
+        $scope.coops = getCoops();
+        
+        function getCoops() {
+            return [
+                {
+                    'jobTitle': 'Software Developer (Co-op)',
+                    'companyName': 'ATS Automation',
+                    'dateFrom': 'JAN. 2020',
+                    'dateTo': 'APRIL 2020',
+                    'location': 'Kitchener, Ontario',
+                    'descriptions': [
+                        "Worked in an agile team to improve on the User Interface of a web application using HTML, CSS, JS with the AngularJS library.",
+                        "Improved on the backend of the web application using C# and SQL (including stored procedures) and MS SQL Server to host the database.",
+                        "Assisted the Quality Assurance team with testing to resolve JIRA tickets, which aided in the completion of sprints.",
+                        "Used svn as the version control system and bitbucket as the repository for hosting projects"
+                    ]
+                }
+            ];
         }
     }
 );
