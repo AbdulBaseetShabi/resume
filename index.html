@@ -22,16 +22,19 @@
         <title>Abdul-Baseet Shabi</title>
     </head>
     <body ng-app="myApp">
+
+        <!-- navigation -->
         <div id="navigation-body">
             <ul id="navigation" class="row">
                 <a href="#introduction" class="navigation-item col active-nav">Introduction</a>
                 <a href="#profile" class="navigation-item col">Profile</a>
                 <a href="#experience" class="navigation-item col">Experience</a>
-                <a href="#" class="navigation-item col">Projects</a>
-                <a href="#" class="navigation-item col">Contact</a>
+                <a href="#projects" class="navigation-item col">Projects</a>
+                <a href="#contact" class="navigation-item col">Contact</a>
             </ul>    
         </div>
 
+        <!-- Introduction -->
         <div id="introduction" class="row makeHeight100">
             <div id="introduction-img" class="col-6 d-flex justify-content-center align-items-center">
                 <img src="assets/introduction.JPG" height="450px" width="300px" alt="My Picture">
@@ -41,6 +44,7 @@
             </div>
         </div>
         
+        <!-- Profile -->
         <div id="profile" class="row makeHeight100" ng-controller="ProfileController">
             <div id="languages" class="col">
                 <h2>Programming Languages</h2>
@@ -69,6 +73,7 @@
             </div>
         </div>
 
+        <!-- Experience -->
         <div id="experience" class="carousel slide makeHeight100" data-ride="carousel" data-interval="false" ng-controller="ExperienceController">
             <ol class="carousel-indicators">
                 <li data-target="#experience" data-slide-to="0" class="active"></li>
@@ -103,6 +108,17 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-            </div>
+        </div>
+
+        <!-- Projects -->
+        <div id="projects" class="makeHeight100">
+            <h2>Projects</h2>
+        </div>
+
+        <!-- Contact -->
+        <div id="contact" class="makeHeight100">
+            <h2>Contact Information</h2>
+        </div>
     </body>
+    <footer id="footer">All icons are gotten from <a href="https://icons8.com/icon/59925/js">Icons8</a></footer>
 </html>
