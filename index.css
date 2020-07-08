@@ -2,3 +2,60 @@ html,body{
     height: 100%;
     width: 100%;
 }
+
+#navigation{
+    list-style: none;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.navigation-item{
+    display: block;
+    color: white;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 3px;
+    border-radius: 7px;
+    margin: 0 10px;
+}
+
+#navigation a:hover{
+    text-decoration: none;
+    background-color: wheat;
+    color: #110C11;
+}
+
+#navigation-body{
+    border: 1px solid black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: #110C11;
+}
+
+.active{
+    background-color: wheat;
+    color: #110C11;
+}
+
+.makeNavVertical{
+    margin: 10px;
+    width: 100%;
+    
+}
+
+.changeDefaultMargin{
+    margin-top: 270px !important;
+}
+
+@media only screen and (max-width: 634px){
+    .navigation-item{
+        width: 100%;
+    }
+}
+
+#main-body{
+    height: 2000px;
+    margin-top: 50px;
+}
