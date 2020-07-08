@@ -3,6 +3,7 @@ html,body{
     width: 100%;
 }
 
+/* Navigation */
 #navigation{
     list-style: none;
     padding: 10px;
@@ -56,6 +57,26 @@ html,body{
 }
 
 #main-body{
-    height: 2000px;
+    padding: 50px 20px;
     margin-top: 50px;
+}
+
+/* Profile */
+#profile-img{
+    border-right: 2px solid black;
+    padding: 10px;
+}
+
+.removeBorder{
+    border-right: none !important;
+    border-bottom: 1px solid black;
+}
+
+.addSpacing{
+    margin-top: 10px;
+}
+
+#profile-body{
+    text-align: center;
+    padding: 10px;
 }

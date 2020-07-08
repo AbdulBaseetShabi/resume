@@ -18,11 +18,25 @@ $(document).ready(function(){
         }
     }
 
-    //Whenever the windows is changed, detects if there is a need for navbar change
+    function changeProfile (){
+        if($( window ).width() < 620){
+            $("#profile").removeClass("row");
+            $("#profile-img").removeClass("col-6").addClass("removeBorder");
+            $("#profile-body").removeClass("col-6").addClass("addSpacing");
+        }else{
+            $("#profile").addClass("row");
+            $("#profile-img").addClass("col-6").removeClass("removeBorder");
+            $("#profile-body").addClass("col-6").removeClass("addSpacing");
+        }
+    }
+
+    //Whenever the windows is changed, detects if there is a need for a view change
     $( window ).resize(function(){
         changeNav();
+        changeProfile();
     });
 
-    //initial run to check for navbar
+    //initial run to check for view changes
     changeNav();
+    changeProfile();
 });
