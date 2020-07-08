@@ -45,7 +45,7 @@
             <div id="languages" class="col">
                 <h2>Programming Languages</h2>
                 <div id="language-body" class="row">
-                    <div ng-repeat="language in languages" class="col languages">
+                    <div ng-repeat="language in languages" class="col experience">
                         <img src="{{language.url}}" alt="{{language.name}} image">
                         <label>{{ language.name }}</label>
                     </div>
@@ -53,9 +53,19 @@
             </div>
             <div id="tools" class="col">
                 <h2>Tools</h2>
+                <div id="language-body" class="row">
+                    <div ng-repeat="tool in tools" class="col experience">
+                        <img src="{{tool.url}}" alt="{{tool.name}} image">
+                        <label>{{ tool.name }}</label>
+                    </div>
+                </div>
             </div>
             <div id="concepts" class="col">
                 <h2>Concepts</h2>
+                <div ng-repeat="concept in concepts" class="col experience">
+                    <img src="{{concept.url}}" alt="{{concept.name}} image">
+                    <label>{{ concept.name }}</label>
+                </div>
             </div>
         </div>
     </body>

@@ -72,6 +72,8 @@ $(document).ready(function(){
 angular.module("myApp",[]).controller("ProfileController",
     function($scope){
         $scope.languages = getLanguages();
+        $scope.tools = getTools();
+        $scope.concepts = getConcepts();
         function getLanguages() {
             return[
                 {
@@ -119,6 +121,23 @@ angular.module("myApp",[]).controller("ProfileController",
                     'url': 'https://img.icons8.com/dusk/96/000000/css3.png'
                 }
             ]
+        }
+
+        function getTools() {
+            return [
+                {
+                    'name' : 'git',
+                    'url': 'https://img.icons8.com/color/96/000000/git.png'
+                },
+                {
+                    'name' : 'svn',
+                    'url': ''
+                }
+            ]
+        }
+
+        function getConcepts() {
+            return [];
         }
     }
 );
