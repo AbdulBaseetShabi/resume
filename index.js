@@ -18,25 +18,25 @@ $(document).ready(function(){
         }
     }
 
-    function changeProfile (){
+    function changeIntroduction (){
         if($( window ).width() < 620){
-            $("#profile").removeClass("row");
-            $("#profile-img").removeClass("col-6").addClass("removeBorder");
-            $("#profile-body").removeClass("col-6").addClass("addSpacing");
+            $("#introduction").removeClass("row");
+            $("#introduction-img").removeClass("col-6").addClass("removeBorder");
+            $("#introduction-body").removeClass("col-6").addClass("addSpacing");
         }else{
-            $("#profile").addClass("row");
-            $("#profile-img").addClass("col-6").removeClass("removeBorder");
-            $("#profile-body").addClass("col-6").removeClass("addSpacing");
+            $("#introduction").addClass("row");
+            $("#introduction-img").addClass("col-6").removeClass("removeBorder");
+            $("#introduction-body").addClass("col-6").removeClass("addSpacing");
         }
     }
 
     //Whenever the windows is changed, detects if there is a need for a view change
     $( window ).resize(function(){
         changeNav();
-        changeProfile();
+        changeIntroduction();
     });
 
     //initial run to check for view changes
     changeNav();
-    changeProfile();
+    changeIntroduction();
 });
