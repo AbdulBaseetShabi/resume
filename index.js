@@ -2,13 +2,22 @@
 $(document).ready(function(){
     // alert($( window ).width());
     // Highlight Active Navigation Item
-    $(".navigation-item").click(function() {
+    $(".navigation-item").click(function(e) {
+        e.preventDefault();
         $(".navigation-item").removeClass("active");
         $(this).addClass("active");
+        scrollToHref($(this).attr("href"));  
     });
 
+    // Animated Scroll
+    function scrollToHref(href){
+        $('html,body').animate({
+            scrollTop: $(href).offset().top},
+            'slow');
+    }
+
     //Makes the Navbar vertical and Add A Margin to the Main Body
-    function changeNav (){
+    function changeNav() {
         if($( window ).width() < 620){
             $(".navigation-item").removeClass("col");
             $(".navigation-item").addClass("makeNavVertical");
@@ -20,7 +29,7 @@ $(document).ready(function(){
         }
     }
 
-    function changeIntroduction (){
+    function changeIntroduction() {
         if($( window ).width() < 620){
             $("#introduction").removeClass("row");
             $("#introduction-img").removeClass("col-6").addClass("removeBorder");
@@ -32,7 +41,7 @@ $(document).ready(function(){
         }
     }
 
-    function changeProfile (){
+    function changeProfile() {
         if($( window ).width() < 975){
             $("#profile").removeClass("row");
             $("#languages").removeClass("col");
@@ -63,7 +72,7 @@ $(document).ready(function(){
 angular.module("myApp",[]).controller("ProfileController",
     function($scope){
         $scope.languages = getLanguages();
-        function getLanguages(){
+        function getLanguages() {
             return[
                 {
                     'name': 'Nodejs',
