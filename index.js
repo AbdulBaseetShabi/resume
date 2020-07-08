@@ -1,4 +1,6 @@
+// JQUERY
 $(document).ready(function(){
+    // alert($( window ).width());
     // Highlight Active Navigation Item
     $(".navigation-item").click(function() {
         $(".navigation-item").removeClass("active");
@@ -10,10 +12,10 @@ $(document).ready(function(){
         if($( window ).width() < 620){
             $(".navigation-item").removeClass("col");
             $(".navigation-item").addClass("makeNavVertical");
-            $("#main-body").addClass("changeDefaultMargin");
+            $("#introduction").addClass("changeDefaultMargin").removeClass("makeHeight100");
         }else{
             $(".navigation-item").removeClass("makeNavVertical");
-            $("#main-body").removeClass("changeDefaultMargin");
+            $("#introduction").removeClass("changeDefaultMargin").addClass("makeHeight100");
             $(".navigation-item").addClass("col");
         }
     }
@@ -30,13 +32,84 @@ $(document).ready(function(){
         }
     }
 
+    function changeProfile (){
+        if($( window ).width() < 975){
+            $("#profile").removeClass("row");
+            $("#languages").removeClass("col");
+            $("#tools").removeClass("col");
+            $("#concepts").removeClass("col");
+        }else{
+            $("#profile").addClass("row");
+            $("#languages").addClass("col");
+            $("#tools").addClass("col");
+            $("#concepts").addClass("col");
+        }
+    }
+
     //Whenever the windows is changed, detects if there is a need for a view change
     $( window ).resize(function(){
         changeNav();
         changeIntroduction();
+        changeProfile();
     });
 
     //initial run to check for view changes
     changeNav();
     changeIntroduction();
+    changeProfile();
 });
+
+//ANGULAR
+angular.module("myApp",[]).controller("ProfileController",
+    function($scope){
+        $scope.languages = getLanguages();
+        function getLanguages(){
+            return[
+                {
+                    'name': 'Nodejs',
+                    'url': 'https://img.icons8.com/color/96/000000/nodejs.png'
+                },
+                {
+                    'name': 'Java',
+                    'url': 'https://img.icons8.com/color/96/000000/java-coffee-cup-logo.png'
+                },
+                {
+                    'name': 'C',
+                    'url': 'https://img.icons8.com/color/96/000000/c-programming.png'
+                },
+                {
+                    'name': 'JavaScript',
+                    'url': 'https://img.icons8.com/color/96/000000/javascript.png'
+                },
+                {
+                    'name': 'C#',
+                    'url': 'https://img.icons8.com/color/96/000000/c-sharp-logo.png'
+                },
+                // {
+                //     'name': 'NoSQL',
+                //     'url': ''
+                // },
+                // {
+                //     'name': 'SQL',
+                //     'url': ''
+                // },
+                // {
+                //     'name': 'VBA',
+                //     'url': ''
+                // },
+                {
+                    'name': 'Python',
+                    'url': 'https://img.icons8.com/color/96/000000/python.png'
+                },
+                {
+                    'name': 'HTML',
+                    'url': 'https://img.icons8.com/dusk/96/000000/html-5.png'
+                },
+                {
+                    'name': 'CSS',
+                    'url': 'https://img.icons8.com/dusk/96/000000/css3.png'
+                }
+            ]
+        }
+    }
+);
