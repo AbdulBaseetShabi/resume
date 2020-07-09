@@ -146,11 +146,13 @@ app.controller("ProfileController",
 app.controller('ExperienceController',
     function($scope) {
         $scope.coops = getCoops();
-        
+        $scope.works = getWorks();
+        $scope.volunteers = getVolunteers();
+
         function getCoops() {
             return [
                 {
-                    'jobTitle': 'Software Developer (Co-op)',
+                    'jobTitle': 'Software Developer',
                     'companyName': 'ATS Automation',
                     'dateFrom': 'JAN. 2020',
                     'dateTo': 'APRIL 2020',
@@ -161,8 +163,42 @@ app.controller('ExperienceController',
                         "Assisted the Quality Assurance team with testing to resolve JIRA tickets, which aided in the completion of sprints.",
                         "Used svn as the version control system and bitbucket as the repository for hosting projects"
                     ]
+                },
+                {
+                    'jobTitle': 'Software Developer',
+                    'companyName': 'The Incubator, The Cooperators',
+                    'dateFrom': 'MAY 2020',
+                    'dateTo': 'AUG. 2020',
+                    'location': 'Kitchener, Ontario',
+                    'descriptions': [
+                        "Developed the UI/UX of a web application project using Angular with the Bootstrap.",
+                        "Contributed to building the backend REST API using Node.js and Express with MongoDB for the database while using NoSQL.",
+                        "Used git for the version control system while using JIRA and confluence for sprint planning and business-level API documentation.",
+                        "Worked in an agile, fast-paced environment with a team of seven which had weekly sprints and biweekly release meetings."
+                    ]
                 }
             ];
+        }
+
+        function getWorks() {
+            return [
+                {
+                    'jobTitle': 'Headstart Ambassador',
+                    'companyName': 'Laurier International, Wilfrid Laurier University',
+                    'dateFrom': 'MAY 2018',
+                    'dateTo': 'SEPT. 2020',
+                    'location': 'Waterloo, Ontario',
+                    'descriptions': [
+                        "Conducted campus and residential tours to students, their families and friends to improve their familiarity with the Laurier environment and answer any questions they may have.",
+                        "Assisted the headstart coordinators with the logistical aspects related to the program, events setup and planning, which ensured the smooth running of the events.",
+                        "Facilitated workshops and discussions such as the double degree information sessions with incoming students and families, which gave further insight into the program."
+                    ]
+                }
+            ];
+        }
+
+        function getVolunteers() {
+            return getWorks();
         }
     }
 );
