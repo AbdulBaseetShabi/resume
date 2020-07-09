@@ -74,15 +74,10 @@
         </div>
 
         <!-- Experience -->
-        <div id="experience" class="carousel slide makeHeight100" data-ride="carousel" data-interval="false" ng-controller="ExperienceController">
-            <ol class="carousel-indicators">
-                <li data-target="#experience" data-slide-to="0" class="active"></li>
-                <li data-target="#experience" data-slide-to="1"></li>
-                <li data-target="#experience" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner makeHeight100">
-                <div class="carousel-item active makeHeight100" style="padding: 20px 0">
-                   <h2>Coop Experiences</h2>
+        <div id="experience" ng-controller="ExperienceController">
+            <div>
+                <div style="padding: 20px 0">
+                   <h2>Coop Experience</h2>
                    <div class="card" ng-repeat="coop in coops">
                         <div class="card-body">
                             <h5 class="card-title d-flex justify-content-between"><label>{{ coop.jobTitle }}</label><label>{{ coop.dateFrom }} - {{ coop.dateTo }}</label></h5>
@@ -93,31 +88,47 @@
                         </div>
                    </div>
                 </div>
-                <div class="carousel-item makeHeight100">
-                    Test2
+                <div>
+                    <h2>Work Experience</h2>
+                    <div class="card" ng-repeat="work in works">
+                        <div class="card-body">
+                            <h5 class="card-title d-flex justify-content-between"><label>{{ work.jobTitle }}</label><label>{{ work.dateFrom }} - {{ work.dateTo }}</label></h5>
+                            <h6 class="card-subtitle mb-2 text-muted" style="font-style: italic;">{{ work.companyName }}, {{ work.location }}</h6>
+                            <ul ng-repeat="description in work.descriptions">
+                                <li class="card-text">{{ description }}</li>
+                            </ul>
+                        </div>
+                   </div>
                 </div>
-                <div class="carousel-item makeHeight100">
-                    Test3
+                <div>
+                    <h2>Volunteer Experience</h2>
+                    <div class="card" ng-repeat="volunteer in volunteers">
+                        <div class="card-body">
+                            <h5 class="card-title d-flex justify-content-between"><label>{{ volunteer.jobTitle }}</label><label>{{ volunteer.dateFrom }} - {{ volunteer.dateTo }}</label></h5>
+                            <h6 class="card-subtitle mb-2 text-muted" style="font-style: italic;">{{ volunteer.companyName }}, {{ volunteer.location }}</h6>
+                            <ul ng-repeat="description in volunteer.descriptions">
+                                <li class="card-text">{{ description }}</li>
+                            </ul>
+                        </div>
+                   </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#experience" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#experience" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
 
         <!-- Projects -->
         <div id="projects" class="makeHeight100">
             <h2>Projects</h2>
+            <div style="border: 1px solid" class="makeHeight100">
+
+            </div>
         </div>
 
         <!-- Contact -->
         <div id="contact" class="makeHeight100">
             <h2>Contact Information</h2>
+            <div style="border: 1px solid" class="makeHeight100">
+
+            </div>
         </div>
     </body>
     <footer id="footer">All icons are gotten from <a href="https://icons8.com/icon/59925/js">Icons8</a></footer>
