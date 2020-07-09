@@ -167,8 +167,8 @@ app.controller('ExperienceController',
                 {
                     'jobTitle': 'Software Developer',
                     'companyName': 'The Incubator, The Cooperators',
-                    'dateFrom': 'MAY 2020',
-                    'dateTo': 'AUG. 2020',
+                    'dateFrom': 'MAY 2019',
+                    'dateTo': 'AUG. 2019',
                     'location': 'Kitchener, Ontario',
                     'descriptions': [
                         "Developed the UI/UX of a web application project using Angular with the Bootstrap.",
