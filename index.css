@@ -38,7 +38,6 @@
 
 /* Introduction */
 #introduction-img{
-    border-right: 2px solid black;
     padding: 10px;
 }
 
@@ -109,7 +108,7 @@ h2{
 .card{
     color: #110C11;
     width: 80%;
-    margin: auto;
+    margin: 15px auto;
 }
 
 /* Projects */
@@ -136,7 +135,7 @@ html,body{
     width: 100%;
 }
 
-#profile,#introduction,#language-body,#experience{
+#profile,#introduction,#language-body,#experience,#contact,#projects{
     width: 100%;
 }
 
