@@ -1,6 +1,7 @@
 // JQUERY
 $(document).ready(function(){
     // alert($( window ).width());
+    $('button').click();
     // Highlight Active Navigation Item
     $(".navigation-item").click(function(e) {
         e.preventDefault();
