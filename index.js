@@ -225,3 +225,49 @@ app.controller('ExperienceController',
         }
     }
 );
+
+app.controller('ContactController',
+    function($scope) {
+        $scope.contacts = getContacts();
+
+        function getContacts() {
+            return [
+                {
+                    'name' : 'LinkedIn',
+                    'is_email' : false,
+                    'is_link' : true,
+                    'value' : 'https://www.linkedin.com/in/abdulbaseet/',
+                    'icon' : 'https://img.icons8.com/color/48/000000/linkedin.png'
+                },
+                {
+                    'name' : 'Gmail',
+                    'is_email' : true,
+                    'is_link' : false,
+                    'value' : 'sbaseet123@gmail.com',
+                    'icon' : 'https://img.icons8.com/color/48/000000/gmail.png'
+                },
+                {
+                    'name' : 'Phone',
+                    'is_email' : false,
+                    'is_link' : false,
+                    'value' : '+1 (226)-505-1559',
+                    'icon' : 'https://img.icons8.com/dusk/48/000000/ringing-phone.png'
+                },
+                {
+                    'name' : 'GitHub',
+                    'is_email' : false,
+                    'is_link' : true,
+                    'value' : 'https://github.com/AbdulBaseetShabi',
+                    'icon' : 'https://img.icons8.com/color/48/000000/github.png'
+                },
+                {
+                    'name' : 'Instagram',
+                    'is_email' : false,
+                    'is_link' : true,
+                    'value' : 'https://www.instagram.com/bsquare480/',
+                    'icon' : 'https://img.icons8.com/fluent/48/000000/instagram-new.png'
+                }
+            ];
+        }
+    }
+);

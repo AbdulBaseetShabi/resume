@@ -164,22 +164,26 @@
         </div>
 
         <!-- Contact -->
-        <div id="contact" class="makeHeight100">
+        <div id="contact" class="makeHeight100" ng-controller="ContactController">
             <h2>Contact Information</h2>
             <hr style="border-radius: 5px;">
             <div style="height:70%;">
                 <!-- <div style="width:65%;margin: auto;height: 60%;" class="row"> -->
                     <!-- <div class="col-6" style="margin: auto;"> -->
-                        <a style="display:block;"><img src="https://img.icons8.com/color/48/000000/linkedin.png"/>&nbsp;|&nbsp;<label>Linkedin</label>&nbsp;|&nbsp;<label>https://www.linkedin.com/in/abdulbaseet/</label></a>
-                        <a style="display:block;"><img src="https://img.icons8.com/color/48/000000/gmail.png"/>&nbsp;|&nbsp;<label>Gmail</label>&nbsp;|&nbsp;<label>sbaseet123@gmail.com</label></a>
-                        <a style="display:block;"><img src="https://img.icons8.com/dusk/48/000000/ringing-phone.png"/>&nbsp;|&nbsp;<label>Phone</label>&nbsp;|&nbsp;<label>+1 (226)-505-1559</label></a>    
-                        <a style="display:block;"><img src="https://img.icons8.com/color/48/000000/github.png"/>&nbsp;|&nbsp;<label>GitHub</label>&nbsp;|&nbsp;<label>https://github.com/AbdulBaseetShabi</label></a>
-                        <a style="display:block;"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>&nbsp;|&nbsp;<label>Instagram</label>&nbsp;|&nbsp;<label>https://www.instagram.com/bsquare480/</label></a>    
+                        <a ng-repeat="contact in contacts" style="display:block;" ng-if="contact.is_email" href="mailto:{{ contact.value }}">
+                            <img src="{{ contact.icon }}"/>&nbsp;|&nbsp;<label>{{ contact.name }}</label>&nbsp;|&nbsp;<label>{{ contact.value }}</label>
+                        </a>
+                        <a ng-repeat="contact in contacts" style="display:block;" ng-if="contact.is_link" href="{{ contact.value }}">
+                            <img src="{{ contact.icon }}"/>&nbsp;|&nbsp;<label>{{ contact.name }}</label>&nbsp;|&nbsp;<label>{{ contact.value }}</label>
+                        </a>
+                        <a ng-repeat="contact in contacts" style="display:block;" ng-if="!contact.is_link && !contact.is_email">
+                            <img src="{{ contact.icon }}"/>&nbsp;|&nbsp;<label>{{ contact.name }}</label>&nbsp;|&nbsp;<label>{{ contact.value }}</label>
+                        </a>
                     <!-- </div> -->
                  <!-- </div>     -->
             </div>
             <hr style="border-radius: 5px;">
-            <footer id="footer">All icons are gotten from <a href="https://icons8.com/icon/59925/js">Icons8</a></footer>
+            <footer id="footer">All icons are gotten from <a href="https://icons8.com/icon/59925/js" style="color: blue;">Icons8</a></footer>
         </div>
 
         <!-- Disclamer -->
