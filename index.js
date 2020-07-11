@@ -69,8 +69,34 @@ $(document).ready(function(){
     changeProfile();
 });
 
-//ANGULAR
+//ANGULAR JS
+var host = 'http://localhost:3000';
+
 var app = angular.module("myApp",[]);
+app.controller("IntroductionController",
+    function($scope, $http) {
+        $scope.biography;
+
+        function getBiography() {
+            $http.get(host + "/biography").then(
+                function success(response) {
+                    $scope.biography = response.data["data"];
+                    //TODO: update data to JSON file (lock file to prevent corruption)
+                    console.log(response);
+                    // alert(response);
+                },
+                function error(response) {
+                    //TODO: get data from a file
+                    console.log(response);
+                    // alert(response);
+                }
+            );
+        }
+
+        getBiography();
+    }
+);
+
 app.controller("ProfileController",
     function($scope) {
         $scope.languages = getLanguages();
