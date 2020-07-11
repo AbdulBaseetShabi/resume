@@ -45,15 +45,9 @@ $(document).ready(function(){
     //TODO: Fix to match new format
     function changeProfile() {
         if($( window ).width() < 975){
-            $("#profile").removeClass("row");
-            $("#languages").removeClass("col");
-            $("#tools").removeClass("col");
-            $("#concepts").removeClass("col");
+            $("#profile").removeClass("makeHeight100");
         }else{
-            $("#profile").addClass("row");
-            $("#languages").addClass("col");
-            $("#tools").addClass("col");
-            $("#concepts").addClass("col");
+            $("#profile").addClass("makeHeight100");
         }
     }
 
@@ -61,13 +55,13 @@ $(document).ready(function(){
     $( window ).resize(function(){
         changeNav();
         changeIntroduction();
-        // changeProfile();
+        changeProfile();
     });
 
     //initial run to check for view changes
     changeNav();
     changeIntroduction();
-    // changeProfile();
+    changeProfile();
 });
 
 //ANGULAR JS
@@ -89,6 +83,7 @@ app.controller("IntroductionController",
                 function error(response) {
                     //TODO: get data from a file
                     console.log(response);
+                    $scope.biography = "Hi! Welcome to my personal page. My name is Abdul-Baseet Shabi. I am an international student from Nigeria currently enrolled in the double degree program (Business Administration and Computer Science) at Wilfrid Laurier University in my 3rd year. My career aspiration is to apply my technical skills as a developer and knowledge of the business environment to create technologies to make business processes more efficient."
                     // alert(response);
                 }
             );
