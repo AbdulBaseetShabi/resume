@@ -37,36 +37,55 @@
         <!-- Introduction -->
         <div id="introduction" class="row makeHeight100" ng-controller="IntroductionController">
             <div id="introduction-img" class="col-6 d-flex justify-content-center align-items-center">
-                <img src="assets/introduction.JPG" height="450px" width="300px" alt="My Picture">
+                <img src="assets/introduction.JPG" alt="My Picture">
             </div>
             <div id="introduction-body" class="col-6 d-flex align-items-center">{{ biography }}</div>
         </div>
         
         <!-- Profile -->
-        <div id="profile" class="row makeHeight100" ng-controller="ProfileController">
-            <div id="languages" class="col">
-                <h2>Programming Languages</h2>
-                <div id="language-body" class="row">
+        <div id="profile" class="makeHeight100 d-flex align-items-between flex-wrap" ng-controller="ProfileController">
+            <div id="education" class="row">
+                <div class="col-4">
+                    <h2 class="labelH2">Education</h2>
+                </div>
+                <div class="col">
+                    Hi! Welcome to my personal page. My name is Abdul-Baseet Shabi.I am an international student from Nigeria currently enrolled in the double degree program (Business Administration and Computer Science) at Wilfrid Laurier University in my 3rd year. My career aspiration is to apply my technical skills as a developer and knowledge of the business environment to create technologies to make business processes more efficient.
+                </div>
+            </div>
+            <hr>
+            <div id="languages" class="row">
+                <div class="col-4">
+                    <h2 class="labelH2">Programming Languages</h2>
+                </div>
+                <div class="col row">
                     <div ng-repeat="language in languages" class="col experience">
                         <img src="{{language.url}}" alt="{{language.name}} image">
                         <label>{{ language.name }}</label>
                     </div>
                 </div>
             </div>
-            <div id="tools" class="col">
-                <h2>Tools</h2>
-                <div id="language-body" class="row">
+            <hr>
+            <div id="tools" class="row">
+                <div class="col-4">
+                    <h2 class="labelH2">Tools</h2>
+                </div>
+                <div class="col row">
                     <div ng-repeat="tool in tools" class="col experience">
                         <img src="{{tool.url}}" alt="{{tool.name}} image">
                         <label>{{ tool.name }}</label>
                     </div>
                 </div>
             </div>
-            <div id="concepts" class="col">
-                <h2>Concepts</h2>
-                <div ng-repeat="concept in concepts" class="col experience">
-                    <img src="{{concept.url}}" alt="{{concept.name}} image">
-                    <label>{{ concept.name }}</label>
+            <hr>
+            <div id="concepts" class="row">
+                <div class="col-4">
+                    <h2 class="labelH2">Concepts</h2>
+                </div>
+                <div class="col row">
+                    <div ng-repeat="concept in concepts" class="col experience">
+                        <img src="{{concept.url}}" alt="{{concept.name}} image">
+                        <label>{{ concept.name }}</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,9 +166,20 @@
         <!-- Contact -->
         <div id="contact" class="makeHeight100">
             <h2>Contact Information</h2>
-            <div style="border: 1px solid" class="makeHeight100">
-
+            <hr style="border-radius: 5px;">
+            <div style="height:70%;">
+                <!-- <div style="width:65%;margin: auto;height: 60%;" class="row"> -->
+                    <!-- <div class="col-6" style="margin: auto;"> -->
+                        <a style="display:block;"><img src="https://img.icons8.com/color/48/000000/linkedin.png"/>&nbsp;|&nbsp;<label>Linkedin</label>&nbsp;|&nbsp;<label>https://www.linkedin.com/in/abdulbaseet/</label></a>
+                        <a style="display:block;"><img src="https://img.icons8.com/color/48/000000/gmail.png"/>&nbsp;|&nbsp;<label>Gmail</label>&nbsp;|&nbsp;<label>sbaseet123@gmail.com</label></a>
+                        <a style="display:block;"><img src="https://img.icons8.com/dusk/48/000000/ringing-phone.png"/>&nbsp;|&nbsp;<label>Phone</label>&nbsp;|&nbsp;<label>+1 (226)-505-1559</label></a>    
+                        <a style="display:block;"><img src="https://img.icons8.com/color/48/000000/github.png"/>&nbsp;|&nbsp;<label>GitHub</label>&nbsp;|&nbsp;<label>https://github.com/AbdulBaseetShabi</label></a>
+                        <a style="display:block;"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>&nbsp;|&nbsp;<label>Instagram</label>&nbsp;|&nbsp;<label>https://www.instagram.com/bsquare480/</label></a>    
+                    <!-- </div> -->
+                 <!-- </div>     -->
             </div>
+            <hr style="border-radius: 5px;">
+            <footer id="footer">All icons are gotten from <a href="https://icons8.com/icon/59925/js">Icons8</a></footer>
         </div>
 
         <!-- Disclamer -->
@@ -175,5 +205,4 @@
             </div>
         </div>
     </body>
-    <footer id="footer">All icons are gotten from <a href="https://icons8.com/icon/59925/js">Icons8</a></footer>
 </html>

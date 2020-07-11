@@ -42,6 +42,7 @@ $(document).ready(function(){
         }
     }
 
+    //TODO: Fix to match new format
     function changeProfile() {
         if($( window ).width() < 975){
             $("#profile").removeClass("row");
@@ -60,13 +61,13 @@ $(document).ready(function(){
     $( window ).resize(function(){
         changeNav();
         changeIntroduction();
-        changeProfile();
+        // changeProfile();
     });
 
     //initial run to check for view changes
     changeNav();
     changeIntroduction();
-    changeProfile();
+    // changeProfile();
 });
 
 //ANGULAR JS
@@ -106,23 +107,23 @@ app.controller("ProfileController",
             return[
                 {
                     'name': 'Nodejs',
-                    'url': 'https://img.icons8.com/color/96/000000/nodejs.png'
+                    'url': 'https://img.icons8.com/color/48/000000/nodejs.png'
                 },
                 {
                     'name': 'Java',
-                    'url': 'https://img.icons8.com/color/96/000000/java-coffee-cup-logo.png'
+                    'url': 'https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png'
                 },
                 {
                     'name': 'C',
-                    'url': 'https://img.icons8.com/color/96/000000/c-programming.png'
+                    'url': 'https://img.icons8.com/color/48/000000/c-programming.png'
                 },
                 {
                     'name': 'JavaScript',
-                    'url': 'https://img.icons8.com/color/96/000000/javascript.png'
+                    'url': 'https://img.icons8.com/color/48/000000/javascript.png'
                 },
                 {
                     'name': 'C#',
-                    'url': 'https://img.icons8.com/color/96/000000/c-sharp-logo.png'
+                    'url': 'https://img.icons8.com/color/48/000000/c-sharp-logo.png'
                 },
                 // {
                 //     'name': 'NoSQL',
@@ -138,15 +139,15 @@ app.controller("ProfileController",
                 // },
                 {
                     'name': 'Python',
-                    'url': 'https://img.icons8.com/color/96/000000/python.png'
+                    'url': 'https://img.icons8.com/color/48/000000/python.png'
                 },
                 {
                     'name': 'HTML',
-                    'url': 'https://img.icons8.com/dusk/96/000000/html-5.png'
+                    'url': 'https://img.icons8.com/dusk/48/000000/html-5.png'
                 },
                 {
                     'name': 'CSS',
-                    'url': 'https://img.icons8.com/dusk/96/000000/css3.png'
+                    'url': 'https://img.icons8.com/dusk/48/000000/css3.png'
                 }
             ]
         }
@@ -155,7 +156,7 @@ app.controller("ProfileController",
             return [
                 {
                     'name' : 'git',
-                    'url': 'https://img.icons8.com/color/96/000000/git.png'
+                    'url': 'https://img.icons8.com/color/48/000000/git.png'
                 },
                 {
                     'name' : 'svn',
