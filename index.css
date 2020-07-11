@@ -52,7 +52,6 @@
     padding: 50px 20px;
     margin: 0px;
     padding-top: 100px;
-    /* background-color:bisque; */
     background-color: darkslategrey;
 }
 
@@ -68,15 +67,12 @@
 #introduction-body{
     text-align: center;
     padding: 10px;
-    /* background-color: #110C11;
-    color: wheat; */
     background-color: #110C11;
     color: silver;
 }
 
 /* Profile */
 #profile{
-    /* border: 1px solid black; */
     width: 100%;
     margin: 0;
     padding: 50px 0;
@@ -90,18 +86,6 @@ h2{
 #languages,#tools,#concepts,#education{
     width: 100%;
 }
-
-/* #languages{
-    background-color:greenyellow;
-}
-
-#tools{
-    background-color: whitesmoke;
-}
-
-#concepts{
-    background-color: goldenrod;
-} */
 
 .experience label,.experience{
     display: block;
@@ -140,6 +124,15 @@ h2{
 #contact h2{
     font-size: 50px;
     font-weight: 200;
+}
+
+#contact a, #contact a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+#contact img:hover, #contact label:hover{
+    cursor: pointer;
 }
 
 /* Footer */
