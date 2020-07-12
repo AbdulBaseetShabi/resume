@@ -101,7 +101,7 @@
                    <h2>Coop Experience</h2>
                    <div class="card" ng-repeat="coop in coops">
                         <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-between"><label>{{ coop.jobTitle }}</label><label>{{ coop.dateFrom }} - {{ coop.dateTo }}</label></h5>
+                            <h5 class="card-title d-flex justify-content-between"><label>{{ coop.jobTitle }}</label><label style="font-weight: 350;">{{ coop.dateFrom }} - {{ coop.dateTo }}</label></h5>
                             <h6 class="card-subtitle mb-2 text-muted" style="font-style: italic;">{{ coop.companyName }}, {{ coop.location }}</h6>
                             <ul ng-repeat="description in coop.descriptions">
                                 <li class="card-text">{{ description }}</li>
@@ -113,7 +113,7 @@
                     <h2>Work Experience</h2>
                     <div class="card" ng-repeat="work in works">
                         <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-between"><label>{{ work.jobTitle }}</label><label>{{ work.dateFrom }} - {{ work.dateTo }}</label></h5>
+                            <h5 class="card-title d-flex justify-content-between"><label>{{ work.jobTitle }}</label><label style="font-weight: 350;">{{ work.dateFrom }} - {{ work.dateTo }}</label></h5>
                             <h6 class="card-subtitle mb-2 text-muted" style="font-style: italic;">{{ work.companyName }}, {{ work.location }}</h6>
                             <ul ng-repeat="description in work.descriptions">
                                 <li class="card-text">{{ description }}</li>
@@ -125,7 +125,7 @@
                     <h2>Volunteer Experience</h2>
                     <div class="card" ng-repeat="volunteer in volunteers">
                         <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-between"><label>{{ volunteer.jobTitle }}</label><label>{{ volunteer.dateFrom }} - {{ volunteer.dateTo }}</label></h5>
+                            <h5 class="card-title d-flex justify-content-between"><label>{{ volunteer.jobTitle }}</label><label style="font-weight: 350;">{{ volunteer.dateFrom }} - {{ volunteer.dateTo }}</label></h5>
                             <h6 class="card-subtitle mb-2 text-muted" style="font-style: italic;">{{ volunteer.companyName }}, {{ volunteer.location }}</h6>
                             <ul ng-repeat="description in volunteer.descriptions">
                                 <li class="card-text">{{ description }}</li>
