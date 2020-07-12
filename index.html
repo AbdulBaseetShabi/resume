@@ -45,10 +45,10 @@
         <!-- Profile -->
         <div id="profile" class="makeHeight100 d-flex align-items-between flex-wrap" ng-controller="ProfileController">
             <div id="education" class="row">
-                <div class="col-4">
+                <div class="col-4 wideViewDivCol4">
                     <h2 class="labelH2">Education</h2>
                 </div>
-                <div class="col">
+                <div class="col wideViewDivCol">
                     <div ng-repeat="education in educations">
                         <h4>{{ education.school_name }}</h4>
                         <h5 style="font-weight: 400;">{{ education.program }} - {{ education.degree }}</h5>
@@ -58,10 +58,10 @@
             </div>
             <hr>
             <div id="languages" class="row">
-                <div class="col-4">
+                <div class="col-4 wideViewDivCol4">
                     <h2 class="labelH2">Programming Languages</h2>
                 </div>
-                <div class="col row">
+                <div class="col row wideViewDivCol">
                     <div ng-repeat="language in languages" class="col experience">
                         <img src="{{language.url}}" alt="{{language.name}} image">
                         <label>{{ language.name }}</label>
@@ -70,10 +70,10 @@
             </div>
             <hr>
             <div id="tools" class="row">
-                <div class="col-4">
+                <div class="col-4 wideViewDivCol4">
                     <h2 class="labelH2">Tools</h2>
                 </div>
-                <div class="col row">
+                <div class="col row wideViewDivCol">
                     <div ng-repeat="tool in tools" class="col experience">
                         <img src="{{tool.url}}" alt="{{tool.name}} image">
                         <label>{{ tool.name }}</label>
@@ -82,10 +82,10 @@
             </div>
             <hr>
             <div id="concepts" class="row">
-                <div class="col-4">
+                <div class="col-4 wideViewDivCol4">
                     <h2 class="labelH2">Concepts</h2>
                 </div>
-                <div class="col row">
+                <div class="col row wideViewDivCol">
                     <div ng-repeat="concept in concepts" class="col experience">
                         <img src="{{concept.url}}" alt="{{concept.name}} image">
                         <label>{{ concept.name }}</label>

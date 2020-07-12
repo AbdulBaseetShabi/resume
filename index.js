@@ -49,6 +49,24 @@ $(document).ready(function(){
         }else{
             $("#profile").addClass("makeHeight100");
         }
+
+        if ($( window ).width() < 573){
+            $(".wideViewDivCol4").addClass("makeWidth100").removeClass("col-4");
+            $(".wideViewDivCol").addClass("makeWidth100").removeClass("col");;
+            $("#languages").removeClass("row");
+            $("#education").removeClass("row");
+            $("#tools").removeClass("row");
+            $("#concepts").removeClass("row");
+            $('#profile .labelH2').addClass('mobileViewLabel');
+        }else{
+            $(".wideViewDivCol4").addClass("col-4").removeClass("makeWidth100");
+            $(".wideViewDivCol").addClass("col").removeClass("makeWidth100");
+            $("#languages").addClass("row");
+            $("#education").addClass("row");
+            $("#tools").addClass("row");
+            $("#concepts").addClass("row");
+            $('#profile .labelH2').removeClass('mobileViewLabel');
+        }
     }
 
     //Whenever the windows is changed, detects if there is a need for a view change

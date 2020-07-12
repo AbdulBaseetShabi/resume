@@ -85,9 +85,9 @@
     width: 100%;
 }
 
-.experience label,.experience{
-    display: block;
-    text-align: center;
+.mobileViewLabel{
+    text-align: center!important;
+    border: 2px solid;
 }
 
 /* Experience */
@@ -157,6 +157,12 @@ html,body{
 
 .makeHeight100{
     height: 100%;
+}
+
+.makeWidth100{
+    width: 100%;
+    margin: auto!important;
+    padding: 0 5px;
 }
 
 .active-nav{
