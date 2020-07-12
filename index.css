@@ -81,10 +81,6 @@
     background-color: burlywood;
 }
 
-h2{
-    text-align: center;
-}
-
 #languages,#tools,#concepts,#education{
     width: 100%;
 }
@@ -98,6 +94,10 @@ h2{
 #experience{
     padding: 50px 0;
     background-color: whitesmoke;
+}
+
+h2{
+    text-align: center;
 }
 
 .carousel-item{
@@ -177,7 +177,7 @@ html,body{
 .labelH2{
     font-weight: 200;
     font-size: 25px;
-    text-align: center;
+    text-align: end;
     padding: 10px 14px;
     border-right: 2px solid;
 }

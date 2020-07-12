@@ -98,6 +98,8 @@ app.controller("ProfileController",
         $scope.languages = getLanguages();
         $scope.tools = getTools();
         $scope.concepts = getConcepts();
+        $scope.educations = getEducations();
+
         function getLanguages() {
             return[
                 {
@@ -162,6 +164,25 @@ app.controller("ProfileController",
 
         function getConcepts() {
             return [];
+        }
+
+        function getEducations() {
+            return [
+                {
+                    'from' : 'SEPTEMBER 2017',
+                    'to' : 'APRIL 2022',
+                    'school_name' : 'Wilfrid Laurier University',
+                    'program': 'Business Administration',
+                    'degree' : 'Bachelor of Business Administration'
+                },
+                {
+                    'from' : 'SEPTEMBER 2017',
+                    'to' : 'APRIL 2022',
+                    'school_name' : 'Wilfrid Laurier University',
+                    'program': 'Computer Science',
+                    'degree' : 'Bachelor of Computer Science'
+                }
+            ];
         }
     }
 );

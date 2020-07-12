@@ -49,7 +49,11 @@
                     <h2 class="labelH2">Education</h2>
                 </div>
                 <div class="col">
-                    This is a placeholder
+                    <div ng-repeat="education in educations">
+                        <h4>{{ education.school_name }}</h4>
+                        <h5 style="font-weight: 400;">{{ education.program }} - {{ education.degree }}</h5>
+                        <h6 style="font-weight: 300;">{{ education.from }} - {{ education.to }}</h6>
+                    </div>
                 </div>
             </div>
             <hr>
