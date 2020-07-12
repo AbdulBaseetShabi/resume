@@ -75,10 +75,13 @@
 
 /* Profile */
 #profile{
-    width: 100%;
     margin: 0;
     padding: 50px 0;
     background-color: burlywood;
+}
+
+#profile hr{
+    width: 95%;
 }
 
 #languages,#tools,#concepts,#education{
@@ -87,7 +90,17 @@
 
 .mobileViewLabel{
     text-align: center!important;
-    border: 2px solid;
+    border: none !important;
+    color: white;
+    font-weight: 600 !important;
+    margin-bottom: 20px;
+    background-color: #110C11;
+}
+
+.iconAndLabelAlignCenter img, .iconAndLabelAlignCenter label{
+    display: block;
+    text-align: center;
+    margin: auto;
 }
 
 /* Experience */
