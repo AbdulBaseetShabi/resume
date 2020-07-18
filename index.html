@@ -176,7 +176,7 @@
                     <a style="display:inline-block;" ng-if="contact.is_email" href="mailto:{{ contact.value }}">
                         <img src="{{ contact.icon }}"/>&nbsp;<label class="contact-label">{{ contact.value }}</label>
                     </a>
-                    <a style="display:inline-block;" ng-if="contact.is_link" href="{{ contact.value }}">
+                    <a style="display:inline-block;" ng-if="contact.is_link" target="_blank" href="{{ contact.value }}">
                         <img src="{{ contact.icon }}"/>&nbsp;<label class="contact-label">{{ contact.value }}</label>
                     </a>
                     <a style="display:inline-block;" ng-if="!contact.is_link && !contact.is_email" id="phone" ng-click="copyTextToClipboard(contact.value)">
