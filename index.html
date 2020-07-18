@@ -139,7 +139,7 @@
         <!-- Projects -->
         <div id="projects" class="makeHeight100">
             <h2>Projects</h2>
-            <div id="projects-slideshow" class="carousel slide makeHeight100" data-ride="carousel" data-interval="false">
+            <!-- <div id="projects-slideshow" class="carousel slide makeHeight100" data-ride="carousel" data-interval="false">
                 <ol class="carousel-indicators">
                   <li data-target="#projects-slideshow" data-slide-to="0" class="active"></li>
                   <li data-target="#projects-slideshow" data-slide-to="1"></li>
@@ -164,30 +164,28 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
-            </div>
+            </div> -->
         </div>
 
         <!-- Contact -->
-        <div id="contact" class="makeHeight100" ng-controller="ContactController">
-            <h2>Contact Information</h2>
+        <div id="contact" ng-controller="ContactController">
+            <h2>Contact</h2>
             <hr style="border-radius: 5px;">
-            <div style="height:70%;">
-                <!-- <div style="width:65%;margin: auto;height: 60%;" class="row"> -->
-                    <!-- <div class="col-6" style="margin: auto;"> -->
-                        <a ng-repeat="contact in contacts" style="display:block;" ng-if="contact.is_email" href="mailto:{{ contact.value }}">
-                            <img src="{{ contact.icon }}"/>&nbsp;|&nbsp;<label>{{ contact.name }}</label>&nbsp;|&nbsp;<label>{{ contact.value }}</label>
-                        </a>
-                        <a ng-repeat="contact in contacts" style="display:block;" ng-if="contact.is_link" href="{{ contact.value }}">
-                            <img src="{{ contact.icon }}"/>&nbsp;|&nbsp;<label>{{ contact.name }}</label>&nbsp;|&nbsp;<label>{{ contact.value }}</label>
-                        </a>
-                        <a ng-repeat="contact in contacts" style="display:block;" ng-if="!contact.is_link && !contact.is_email">
-                            <img src="{{ contact.icon }}"/>&nbsp;|&nbsp;<label>{{ contact.name }}</label>&nbsp;|&nbsp;<label>{{ contact.value }}</label>
-                        </a>
-                    <!-- </div> -->
-                 <!-- </div>     -->
+            <div id="contact-main-div">
+                <div class="contact-div d-flex justify-content-center" ng-repeat="contact in contacts">
+                    <a style="display:inline-block;" ng-if="contact.is_email" href="mailto:{{ contact.value }}">
+                        <img src="{{ contact.icon }}"/>&nbsp;<label class="contact-label">{{ contact.value }}</label>
+                    </a>
+                    <a style="display:inline-block;" ng-if="contact.is_link" href="{{ contact.value }}">
+                        <img src="{{ contact.icon }}"/>&nbsp;<label class="contact-label">{{ contact.value }}</label>
+                    </a>
+                    <a style="display:inline-block;" ng-if="!contact.is_link && !contact.is_email" id="phone" ng-click="copyTextToClipboard(contact.value)">
+                        <img src="{{ contact.icon }}"/>&nbsp;<label class="contact-label">{{ contact.value }}</label>
+                    </a>
+                </div>
             </div>
             <hr style="border-radius: 5px;">
-            <footer id="footer">All icons are gotten from <a href="https://icons8.com/icon/59925/js" style="color: blue;">Icons8</a></footer>
+            <footer id="footer">All icons are gotten from <a href="https://icons8.com/icon/59925/js" style="color: #007bff;">Icons8</a></footer>
         </div>
 
         <!-- Disclamer -->
