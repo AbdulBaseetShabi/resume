@@ -69,17 +69,34 @@ $(document).ready(function(){
         }
     }
 
+    function changeContactInformation() {
+        if ($( window ).width() < 350){
+            $(".contact-label").css("display", "none");
+            // $("#contact").removeClass("makeHeight100");
+            $(".contact-div").css("display", "inline-block");
+            $("#contact-main-div").addClass("d-flex justify-content-center");
+        }else{
+            $(".contact-label").css("display", "inline-block");
+            // $("#contact").addClass("makeHeight100");
+            $(".contact-div").css("display", "block");
+            $("#contact-main-div").removeClass("d-flex justify-content-center");
+        }
+
+    }
+
     //Whenever the windows is changed, detects if there is a need for a view change
     $( window ).resize(function(){
         changeNav();
         changeIntroduction();
         changeProfile();
+        changeContactInformation();
     });
 
     //initial run to check for view changes
     changeNav();
     changeIntroduction();
     changeProfile();
+    changeContactInformation();
 });
 
 //ANGULAR JS
@@ -265,9 +282,18 @@ app.controller('ExperienceController',
     }
 );
 
-app.controller('ContactController',
+app.controller('ContactController', [ '$scope',
     function($scope) {
         $scope.contacts = getContacts();
+        $scope.copyTextToClipboard = function (value) {
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = value;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            alert("Phone number copied to clipboard");
+        }
 
         function getContacts() {
             return [
@@ -309,4 +335,4 @@ app.controller('ContactController',
             ];
         }
     }
-);
+]);
