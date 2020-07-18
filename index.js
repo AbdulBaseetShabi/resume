@@ -296,7 +296,7 @@ app.controller('ProjectsController',
                     'host': '',
                     'has_host': true,
                     'project_type': '',
-                    'link': ''
+                    'github_link': ''
                 }
             ]
         }
