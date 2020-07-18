@@ -282,6 +282,27 @@ app.controller('ExperienceController',
     }
 );
 
+app.controller('ProjectsController',
+    function($scope) {
+        $scope.projects = getProjects();
+
+        function getProjects() {
+            return [
+                {
+                    'name': 'Resume Website',
+                    'description' : '', 
+                    'languages': '',
+                    'tools': '',
+                    'host': '',
+                    'has_host': true,
+                    'project_type': '',
+                    'link': ''
+                }
+            ]
+        }
+    }
+);
+
 app.controller('ContactController', [ '$scope',
     function($scope) {
         $scope.contacts = getContacts();
