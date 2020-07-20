@@ -101,6 +101,7 @@ $(document).ready(function(){
 
 //ANGULAR JS
 var host = 'http://localhost:3000';
+// var host = 'https://desolate-shelf-14448.herokuapp.com/'
 
 var app = angular.module("myApp",[]);
 app.controller("IntroductionController",
@@ -322,6 +323,7 @@ app.controller('ContactController', [ '$scope',
                     'name' : 'LinkedIn',
                     'is_email' : false,
                     'is_link' : true,
+                    'is_phone_number': false,
                     'value' : 'https://www.linkedin.com/in/abdulbaseet/',
                     'icon' : 'https://img.icons8.com/color/48/000000/linkedin.png'
                 },
@@ -329,6 +331,7 @@ app.controller('ContactController', [ '$scope',
                     'name' : 'Gmail',
                     'is_email' : true,
                     'is_link' : false,
+                    'is_phone_number': false,
                     'value' : 'sbaseet123@gmail.com',
                     'icon' : 'https://img.icons8.com/color/48/000000/gmail.png'
                 },
@@ -336,6 +339,7 @@ app.controller('ContactController', [ '$scope',
                     'name' : 'Phone',
                     'is_email' : false,
                     'is_link' : false,
+                    'is_phone_number' : true,
                     'value' : '+1 (226)-505-1559',
                     'icon' : 'https://img.icons8.com/dusk/48/000000/ringing-phone.png'
                 },
@@ -343,6 +347,7 @@ app.controller('ContactController', [ '$scope',
                     'name' : 'GitHub',
                     'is_email' : false,
                     'is_link' : true,
+                    'is_phone_number': false,
                     'value' : 'https://github.com/AbdulBaseetShabi',
                     'icon' : 'https://img.icons8.com/color/48/000000/github.png'
                 },
@@ -350,6 +355,7 @@ app.controller('ContactController', [ '$scope',
                     'name' : 'Instagram',
                     'is_email' : false,
                     'is_link' : true,
+                    'is_phone_number' : false,
                     'value' : 'https://www.instagram.com/bsquare480/',
                     'icon' : 'https://img.icons8.com/fluent/48/000000/instagram-new.png'
                 }
