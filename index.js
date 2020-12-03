@@ -108,6 +108,12 @@ $(document).ready(function () {
 //ANGULAR JS
 // var host = "http://localhost:3000";
 var host = 'https://desolate-shelf-144144.herokuapp.com/'
+var headers = {
+  'Accept': 'application/json',
+  'Accept': 'application/json',
+  'Access-Control-Allow-Origin': window.location.protocol + "//" + window.location.hostname,
+  'Access-Control-Allow-Credentials': 'true',
+}
 
 var app = angular.module("myApp", []);
 app.controller("IntroductionController", function ($scope, $http) {
@@ -118,6 +124,7 @@ app.controller("IntroductionController", function ($scope, $http) {
       method: "POST",
       url: host + "/getData?db=biography",
       data: { is_active: true },
+      headers: headers
     }).then(
       function success(response) {
         $scope.biography = response.data[0]["data"];
