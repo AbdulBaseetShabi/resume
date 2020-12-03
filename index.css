@@ -17,8 +17,6 @@
 
 #navigation a:hover{
     text-decoration: none;
-    background-color: wheat;
-    color: #110C11;
 }
 
 #navigation-body{
@@ -27,7 +25,7 @@
     top: 0;
     width: 100%;
     z-index: 999;
-    background-color: #110C11;
+    background-color: #121420;
 }
 
 @media only screen and (max-width: 634px){
@@ -38,14 +36,15 @@
 
 /* Introduction */
 #introduction-img{
-    padding: 10px;
-    height: 100%;
+    /* padding: 10px;
+    height: 100%; */
+    margin: auto;
 }
 
 #introduction-img img{
-    height : 500px;
-    width : 300px;
-    border : 4px solid black;
+    height : 250px;
+    width : 250px;
+    /* border : 4px solid black; */
     border-radius: 250px;
 }
 
@@ -53,7 +52,16 @@
     padding: 50px 20px;
     margin: 0px;
     padding-top: 100px;
-    background-color: darkslategrey;
+    /* background-color: darkslategrey; */
+}
+
+@keyframes fadeIn{
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.test-animation {
+    animation: fadeIn 2s
 }
 
 .removeBorder{
@@ -67,17 +75,24 @@
 
 #introduction-body{
     text-align: center;
-    padding: 10px;
-    background-color: #110C11;
-    color: silver;
-    height: 100%;
+    /* padding: 10px; */
+    background-color: #121420;
+    color: #ffffff;
+    font-family: 'Lexend Exa', sans-serif;
+    display: block;
+    width: 70vw;
+    padding: 3vw;
+    margin: auto;
+    /* height: 100%; */
 }
 
 /* Profile */
 #profile{
     margin: 0;
     padding: 50px 0;
-    background-color: burlywood;
+    /* background-color: #1B2432; */
+    background-color:  #272C45;
+    color: #ffffff;
 }
 
 #profile hr{
@@ -127,28 +142,46 @@ h2{
 /* Projects */
 #projects{
     padding: 50px 0;
+    background-color: #403F4C;
+    color: #ffffff;
+    font-family: 'Lexend Exa', sans-serif;
+}
+
+.flip-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-back {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
 }
 
 /* Contact */
 #contact{
     padding: 50px 0;
-    color: white;
-    background-color: #434242;
+    color: black;
+    background-image: url('assets/contact1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
 }
 
-#contact h2{
-    font-size: 50px;
-    font-weight: 200;
-}
-
-#contact a, #contact a:hover{
-    text-decoration: none;
-    color: white;
-}
-
-#contact img:hover, #contact label:hover{
+/* #linkedin:hover{
+    padding-top: 5px;
+    box-shadow: 0px 0px 10px 1px black;
     cursor: pointer;
-}
+} */
 
 /* Footer */
 #footer{
@@ -162,6 +195,8 @@ h2{
 html,body{
     height: 100%;
     width: 100%;
+    background-color: #7C90A0;
+    font-family: 'Lexend Exa', sans-serif;
 }
 
 #profile,#introduction,#experience,#contact,#projects{
@@ -169,7 +204,7 @@ html,body{
 }
 
 .makeHeight100{
-    height: 100%;
+    min-height: 100%;
 }
 
 .makeWidth100{
@@ -204,4 +239,16 @@ html,body{
 hr{
     border-top: 1px solid;
     width: 100%;
+}
+
+body{
+    background-image: url('assets/introduction-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+.icons:hover{
+    text-decoration: none;  
 }
