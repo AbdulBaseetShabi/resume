@@ -107,7 +107,7 @@ $(document).ready(function () {
 
 //ANGULAR JS
 // var host = "http://localhost:3000";
-var host = 'https://desolate-shelf-144144.herokuapp.com/'
+var host = 'https://desolate-shelf-14448.herokuapp.com'
 var headers = {
   'Accept': 'application/json',
   'Accept': 'application/json',
