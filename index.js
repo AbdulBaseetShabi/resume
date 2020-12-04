@@ -1,15 +1,15 @@
 // JQUERY
 $(document).ready(function () {
-  $('[data-toggle="tooltip"]').tooltip(); //tooltip
   // alert($( window ).width());
-  $("button").click();
+  $("#openbutton").click();
+
   // Highlight Active Navigation Item
-  // $(".navigation-item").click(function (e) {
-  //   e.preventDefault();
-  //   $(".navigation-item").removeClass("active-nav");
-  //   $(this).addClass("active-nav");
-  //   scrollToHref($(this).attr("href"));
-  // });
+  $(".navigation-item").click(function (e) {
+    e.preventDefault();
+    $(".navigation-item").removeClass("active-nav");
+    $(this).addClass("active-nav");
+    scrollToHref($(this).attr("href"));
+  });
 
   // Animated Scroll
   function scrollToHref(href) {
@@ -22,21 +22,21 @@ $(document).ready(function () {
   }
 
   //Makes the Navbar vertical and Add A Margin to the Main Body
-  function changeNav() {
-    if ($(window).width() < 620) {
-      $(".navigation-item").removeClass("col");
-      $(".navigation-item").addClass("makeNavVertical");
-      $("#introduction")
-        .addClass("changeDefaultMargin")
-        .removeClass("makeHeight100");
-    } else {
-      $(".navigation-item").removeClass("makeNavVertical");
-      $("#introduction")
-        .removeClass("changeDefaultMargin")
-        .addClass("makeHeight100");
-      $(".navigation-item").addClass("col");
-    }
-  }
+  // function changeNav() {
+  //   if ($(window).width() < 620) {
+  //     $(".navigation-item").removeClass("col");
+  //     $(".navigation-item").addClass("makeNavVertical");
+  //     $("#introduction")
+  //       .addClass("changeDefaultMargin")
+  //       .removeClass("makeHeight100");
+  //   } else {
+  //     $(".navigation-item").removeClass("makeNavVertical");
+  //     $("#introduction")
+  //       .removeClass("changeDefaultMargin")
+  //       .addClass("makeHeight100");
+  //     $(".navigation-item").addClass("col");
+  //   }
+  // }
 
   // function changeIntroduction() {
   //   if ($(window).width() < 620) {
@@ -51,7 +51,7 @@ $(document).ready(function () {
   // }
 
   //TODO: Fix to match new format
-  function changeProfile() {
+  // function changeProfile() {
     // if ($(window).width() < 975) {
     //   $("#profile").removeClass("makeHeight100");
     // } else {
@@ -74,40 +74,51 @@ $(document).ready(function () {
     //   $("#concepts").addClass("row");
     //   $("#profile .labelH2").removeClass("mobileViewLabel");
     // }
-  }
+  // }
 
-  function changeContactInformation() {
-    if ($(window).width() < 350) {
-      $(".contact-label").css("display", "none");
-      // $("#contact").removeClass("makeHeight100");
-      $(".contact-div").css("display", "inline-block");
-      $("#contact-main-div").addClass("d-flex justify-content-center");
-    } else {
-      $(".contact-label").css("display", "inline-block");
-      // $("#contact").addClass("makeHeight100");
-      $(".contact-div").css("display", "block");
-      $("#contact-main-div").removeClass("d-flex justify-content-center");
-    }
-  }
+  // function changeContactInformation() {
+  //   if ($(window).width() < 350) {
+  //     $(".contact-label").css("display", "none");
+  //     // $("#contact").removeClass("makeHeight100");
+  //     $(".contact-div").css("display", "inline-block");
+  //     $("#contact-main-div").addClass("d-flex justify-content-center");
+  //   } else {
+  //     $(".contact-label").css("display", "inline-block");
+  //     // $("#contact").addClass("makeHeight100");
+  //     $(".contact-div").css("display", "block");
+  //     $("#contact-main-div").removeClass("d-flex justify-content-center");
+  //   }
+  // }
 
   //Whenever the windows is changed, detects if there is a need for a view change
-  $(window).resize(function () {
-    changeNav();
+  // $(window).resize(function () {
+  //   changeNav();
     // changeIntroduction();
-    changeProfile();
-    changeContactInformation();
-  });
+  //   changeProfile();
+  //   changeContactInformation();
+  // });
 
   //initial run to check for view changes
-  changeNav();
+  // changeNav();
   // changeIntroduction();
-  changeProfile();
-  changeContactInformation();
+  // changeProfile();
+  // changeContactInformation();
+});
+var receivedRequest = 0;
+var customEvent = new CustomEvent("datarecieved");
+
+document.addEventListener("datarecieved", function(e) {
+  // console.log(e.detail); // Prints "Example of an event"
+  // $('[data-toggle="tooltip"]').tooltip(); //tooltip
+  if (receivedRequest == 6){
+    console.log("All request received");
+    setTimeout(() => {$("#closebutton").click()}, 4000);
+  }
 });
 
 //ANGULAR JS
 // var host = "http://localhost:3000";
-var host = 'https://desolate-shelf-14448.herokuapp.com'
+var host = 'https://desolate-shelf-14448.herokuapp.com';
 var headers = {
   'Accept': 'application/json',
   'Accept': 'application/json',
@@ -129,11 +140,15 @@ app.controller("IntroductionController", function ($scope, $http) {
       function success(response) {
         $scope.biography = response.data[0]["data"];
         //TODO: update data to JSON file (lock file to prevent corruption)
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
         console.log(response);
         
       },
       function error(response) {
         //TODO: get data from a file
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
         console.log(response); 
       }
     );
@@ -160,13 +175,17 @@ app.controller("EducationController", function ($scope, $http) {
           $scope.activities.push(data[i]);
          } 
         }
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
         //TODO: update data to JSON file (lock file to prevent corruption)
         console.log(response);
         
       },
       function error(response) {
         //TODO: get data from a file
+        receivedRequest += 1;
         console.log(response);
+        document.dispatchEvent(customEvent);
       }
     );
   })();
@@ -196,11 +215,15 @@ app.controller("ExperienceController", function ($scope, $http) {
         }
         //TODO: update data to JSON file (lock file to prevent corruption)
         console.log(response);
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
         
       },
       function error(response) {
         //TODO: get data from a file
         console.log(response);
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
       }
     );
   })();
@@ -229,12 +252,16 @@ app.controller("ToolsController", function ($scope, $http) {
                 $scope.concepts.push(res[i]);
             }
         }
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
         //TODO: update data to JSON file (lock file to prevent corruption)
         console.log(response);
         
       },
       function error(response) {
         //TODO: get data from a file
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
         console.log(response);
       }
     );
@@ -255,11 +282,15 @@ app.controller("ProjectsController", function ($scope, $http) {
         
         //TODO: update data to JSON file (lock file to prevent corruption)
         console.log(response);
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
         
       },
       function error(response) {
         //TODO: get data from a file
         console.log(response);
+        receivedRequest += 1;
+        document.dispatchEvent(customEvent);
       }
     );
   })();
@@ -275,14 +306,17 @@ app.controller("ContactController", function ($scope, $http) {
       }).then(
         function success(response) {
           $scope.contacts = response.data;
-          
+          receivedRequest += 1;
+          document.dispatchEvent(customEvent);
           //TODO: update data to JSON file (lock file to prevent corruption)
           console.log(response);
           
         },
         function error(response) {
+          receivedRequest += 1;
           //TODO: get data from a file
           console.log(response);
+          document.dispatchEvent(customEvent);
         }
       );
     })();

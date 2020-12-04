@@ -11,12 +11,17 @@
     box-sizing: border-box;
     text-align: center;
     padding: 3px;
-    border-radius: 7px;
     margin: 0 10px;
 }
 
-#navigation a:hover{
+.navigation-item:hover{
     text-decoration: none;
+    color: white;
+}
+
+.active-nav{
+    background-color: #7C90A0;
+    color: #121420;
 }
 
 #navigation-body{
@@ -211,11 +216,6 @@ html,body{
     width: 100%;
     margin: auto!important;
     padding: 0 5px;
-}
-
-.active-nav{
-    background-color: wheat;
-    color: #110C11;
 }
 
 .makeNavVertical{
