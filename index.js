@@ -1,3 +1,9 @@
+//Global variables
+var receivedRequest = 0;
+var customEvent = new CustomEvent("datarecieved",);
+let contactData;
+
+
 // JQUERY
 $(document).ready(function () {
   $("#openbutton").click();
@@ -128,9 +134,12 @@ $(document).ready(function () {
 
   });
 });
-var receivedRequest = 0;
-var customEvent = new CustomEvent("datarecieved");
 
+function addHoverColor(id, color) {
+  return function (e){
+    $(id).css("color", color)
+  }
+}
 document.addEventListener("datarecieved", function(e) {
   // console.log(e.detail); // Prints "Example of an event"
   // $('[data-toggle="tooltip"]').tooltip(); //tooltip
@@ -139,6 +148,13 @@ document.addEventListener("datarecieved", function(e) {
     setTimeout(() => {
       $("#closebutton").click();
       $("#introduction-body").addClass("fadein-animation");
+
+      for (let i=0; i < contactData.length; i++) {
+        let id = "#" + contactData[i].name;
+        $(id).mouseenter(addHoverColor(id, contactData[i].color));
+        $(id).mouseleave(addHoverColor(id, "white"));
+      }
+
     }, 4000);
     $('[data-toggle="tooltip"]').tooltip();
     
@@ -336,6 +352,7 @@ app.controller("ContactController", function ($scope, $http) {
         function success(response) {
           $scope.contacts = response.data;
           receivedRequest += 1;
+          contactData = response.data;
           document.dispatchEvent(customEvent);
           //TODO: update data to JSON file (lock file to prevent corruption)
           console.log(response);
