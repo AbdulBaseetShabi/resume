@@ -91,7 +91,7 @@
 .fadein-animation {
     animation-name: fadeIn;
     animation-duration: 2s;
-    animation-delay: 1s;
+    animation-delay: 100ms;
     animation-fill-mode: forwards;
 }
 
