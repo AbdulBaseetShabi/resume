@@ -60,15 +60,6 @@
     /* background-color: darkslategrey; */
 }
 
-@keyframes fadeIn{
-    0% { opacity:0; }
-    100% { opacity:1; }
-}
-
-.test-animation {
-    animation: fadeIn 2s
-}
-
 .removeBorder{
     border-right: none !important;
     border-bottom: 1px solid black;
@@ -85,10 +76,23 @@
     color: #ffffff;
     font-family: 'Lexend Exa', sans-serif;
     display: block;
+    opacity: 0;
     width: 70vw;
     padding: 3vw;
     margin: auto;
     /* height: 100%; */
+}
+
+@keyframes fadeIn{
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.fadein-animation {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
 }
 
 /* Profile */

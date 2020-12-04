@@ -1,6 +1,5 @@
 // JQUERY
 $(document).ready(function () {
-  // alert($( window ).width());
   $("#openbutton").click();
 
   // Highlight Active Navigation Item
@@ -103,6 +102,31 @@ $(document).ready(function () {
   // changeIntroduction();
   // changeProfile();
   // changeContactInformation();
+  
+  function getTop(selector) {
+    return $("#" + selector).position().top;
+  }
+
+  function getButtom(selector){
+    return getTop(selector) + $("#" + selector).offset().top + $("#" + selector).outerHeight(true) 
+  }
+
+  
+  let introduction = {"top": 0, "bottom": getButtom("introduction")};
+  let profile = {"top": getTop("profile"), "bottom": getButtom("profile")};
+  let experience = {"top": getTop("experience"), "bottom": getButtom("experience")};
+
+  $(window).scroll(function () {
+    let currentLocation = $(window).height() + $(window).scrollTop();
+    // console.log(currentLocation)
+    // console.log(profile.top)
+    // console.log(profile.bottom)
+    // console.log((introduction.top + introduction.bottom)/2)
+    if (profile.top + 50 <= currentLocation && currentLocation <= profile.bottom + 50){
+      console.log("This")
+    }
+
+  });
 });
 var receivedRequest = 0;
 var customEvent = new CustomEvent("datarecieved");
@@ -112,7 +136,12 @@ document.addEventListener("datarecieved", function(e) {
   // $('[data-toggle="tooltip"]').tooltip(); //tooltip
   if (receivedRequest == 6){
     console.log("All request received");
-    setTimeout(() => {$("#closebutton").click()}, 4000);
+    setTimeout(() => {
+      $("#closebutton").click();
+      $("#introduction-body").addClass("fadein-animation");
+    }, 4000);
+    $('[data-toggle="tooltip"]').tooltip();
+    
   }
 });
 
