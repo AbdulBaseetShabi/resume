@@ -1,8 +1,16 @@
 //Global variables
+// var host = "http://localhost:3000";
+var host = "https://desolate-shelf-14448.herokuapp.com";
+var headers = {
+  Accept: "application/json",
+  Accept: "application/json",
+  "Access-Control-Allow-Origin":
+    window.location.protocol + "//" + window.location.hostname,
+  "Access-Control-Allow-Credentials": "true",
+};
 var receivedRequest = 0;
-var customEvent = new CustomEvent("datarecieved",);
+var customEvent = new CustomEvent("datarecieved");
 let contactData;
-
 
 // JQUERY
 $(document).ready(function () {
@@ -57,28 +65,28 @@ $(document).ready(function () {
 
   //TODO: Fix to match new format
   // function changeProfile() {
-    // if ($(window).width() < 975) {
-    //   $("#profile").removeClass("makeHeight100");
-    // } else {
-    //   $("#profile").addClass("makeHeight100");
-    // }
-    // if ($(window).width() < 573) {
-    //   $(".wideViewDivCol4").addClass("makeWidth100").removeClass("col-4");
-    //   $(".wideViewDivCol").addClass("makeWidth100").removeClass("col");
-    //   $("#languages").removeClass("row");
-    //   $("#education").removeClass("row");
-    //   $("#tools").removeClass("row");
-    //   $("#concepts").removeClass("row");
-    //   $("#profile .labelH2").addClass("mobileViewLabel");
-    // } else {
-    //   $(".wideViewDivCol4").addClass("col-4").removeClass("makeWidth100");
-    //   $(".wideViewDivCol").addClass("col").removeClass("makeWidth100");
-    //   $("#languages").addClass("row");
-    //   $("#education").addClass("row");
-    //   $("#tools").addClass("row");
-    //   $("#concepts").addClass("row");
-    //   $("#profile .labelH2").removeClass("mobileViewLabel");
-    // }
+  // if ($(window).width() < 975) {
+  //   $("#profile").removeClass("makeHeight100");
+  // } else {
+  //   $("#profile").addClass("makeHeight100");
+  // }
+  // if ($(window).width() < 573) {
+  //   $(".wideViewDivCol4").addClass("makeWidth100").removeClass("col-4");
+  //   $(".wideViewDivCol").addClass("makeWidth100").removeClass("col");
+  //   $("#languages").removeClass("row");
+  //   $("#education").removeClass("row");
+  //   $("#tools").removeClass("row");
+  //   $("#concepts").removeClass("row");
+  //   $("#profile .labelH2").addClass("mobileViewLabel");
+  // } else {
+  //   $(".wideViewDivCol4").addClass("col-4").removeClass("makeWidth100");
+  //   $(".wideViewDivCol").addClass("col").removeClass("makeWidth100");
+  //   $("#languages").addClass("row");
+  //   $("#education").addClass("row");
+  //   $("#tools").addClass("row");
+  //   $("#concepts").addClass("row");
+  //   $("#profile .labelH2").removeClass("mobileViewLabel");
+  // }
   // }
 
   // function changeContactInformation() {
@@ -98,7 +106,7 @@ $(document).ready(function () {
   //Whenever the windows is changed, detects if there is a need for a view change
   // $(window).resize(function () {
   //   changeNav();
-    // changeIntroduction();
+  // changeIntroduction();
   //   changeProfile();
   //   changeContactInformation();
   // });
@@ -108,19 +116,25 @@ $(document).ready(function () {
   // changeIntroduction();
   // changeProfile();
   // changeContactInformation();
-  
+
   function getTop(selector) {
     return $("#" + selector).position().top;
   }
 
-  function getButtom(selector){
-    return getTop(selector) + $("#" + selector).offset().top + $("#" + selector).outerHeight(true) 
+  function getButtom(selector) {
+    return (
+      getTop(selector) +
+      $("#" + selector).offset().top +
+      $("#" + selector).outerHeight(true)
+    );
   }
 
-  
-  let introduction = {"top": 0, "bottom": getButtom("introduction")};
-  let profile = {"top": getTop("profile"), "bottom": getButtom("profile")};
-  let experience = {"top": getTop("experience"), "bottom": getButtom("experience")};
+  let introduction = { top: 0, bottom: getButtom("introduction") };
+  let profile = { top: getTop("profile"), bottom: getButtom("profile") };
+  let experience = {
+    top: getTop("experience"),
+    bottom: getButtom("experience"),
+  };
 
   $(window).scroll(function () {
     let currentLocation = $(window).height() + $(window).scrollTop();
@@ -128,49 +142,40 @@ $(document).ready(function () {
     // console.log(profile.top)
     // console.log(profile.bottom)
     // console.log((introduction.top + introduction.bottom)/2)
-    if (profile.top + 50 <= currentLocation && currentLocation <= profile.bottom + 50){
-      console.log("This")
+    if (
+      profile.top + 50 <= currentLocation &&
+      currentLocation <= profile.bottom + 50
+    ) {
+      console.log("This");
     }
-
   });
 });
 
 function addHoverColor(id, color) {
-  return function (e){
-    $(id).css("color", color)
-  }
+  return function (e) {
+    $(id).css("color", color);
+  };
 }
-document.addEventListener("datarecieved", function(e) {
+document.addEventListener("datarecieved", function (e) {
   // console.log(e.detail); // Prints "Example of an event"
   // $('[data-toggle="tooltip"]').tooltip(); //tooltip
-  if (receivedRequest == 6){
+  if (receivedRequest == 6) {
     console.log("All request received");
     setTimeout(() => {
       $("#closebutton").click();
       $("#introduction-body").addClass("fadein-animation");
 
-      for (let i=0; i < contactData.length; i++) {
+      for (let i = 0; i < contactData.length; i++) {
         let id = "#" + contactData[i].name;
         $(id).mouseenter(addHoverColor(id, contactData[i].color));
         $(id).mouseleave(addHoverColor(id, "white"));
       }
-
     }, 4000);
     $('[data-toggle="tooltip"]').tooltip();
-    
   }
 });
 
 //ANGULAR JS
-// var host = "http://localhost:3000";
-var host = 'https://desolate-shelf-14448.herokuapp.com';
-var headers = {
-  'Accept': 'application/json',
-  'Accept': 'application/json',
-  'Access-Control-Allow-Origin': window.location.protocol + "//" + window.location.hostname,
-  'Access-Control-Allow-Credentials': 'true',
-}
-
 var app = angular.module("myApp", []);
 app.controller("IntroductionController", function ($scope, $http) {
   $scope.biography = "";
@@ -180,7 +185,7 @@ app.controller("IntroductionController", function ($scope, $http) {
       method: "POST",
       url: host + "/getData?db=biography",
       data: { is_active: true },
-      headers: headers
+      headers: headers,
     }).then(
       function success(response) {
         $scope.biography = response.data[0]["data"];
@@ -188,24 +193,22 @@ app.controller("IntroductionController", function ($scope, $http) {
         receivedRequest += 1;
         document.dispatchEvent(customEvent);
         console.log(response);
-        
       },
       function error(response) {
         //TODO: get data from a file
         receivedRequest += 1;
         document.dispatchEvent(customEvent);
-        console.log(response); 
+        console.log(response);
       }
     );
   })();
-
 });
 
 app.controller("EducationController", function ($scope, $http) {
   $scope.educations = [];
   $scope.activities = [];
 
-  (()=> {
+  (() => {
     $http({
       method: "POST",
       url: host + "/getData?db=education",
@@ -214,17 +217,16 @@ app.controller("EducationController", function ($scope, $http) {
       function success(response) {
         let data = response.data;
         for (let i = 0; i < data.length; i++) {
-         if (data[i].isEducation) {
-          $scope.educations.push(data[i]);
-         } else if (data[i].isActivity) {
-          $scope.activities.push(data[i]);
-         } 
+          if (data[i].isEducation) {
+            $scope.educations.push(data[i]);
+          } else if (data[i].isActivity) {
+            $scope.activities.push(data[i]);
+          }
         }
         receivedRequest += 1;
         document.dispatchEvent(customEvent);
         //TODO: update data to JSON file (lock file to prevent corruption)
         console.log(response);
-        
       },
       function error(response) {
         //TODO: get data from a file
@@ -250,19 +252,18 @@ app.controller("ExperienceController", function ($scope, $http) {
       function success(response) {
         let res = response.data;
         for (let i = 0; i < res.length; i++) {
-            if (res[i].isCoop){
-                $scope.coops.push(res[i]);
-            }else if (res[i].isWork){
-                $scope.works.push(res[i]);
-            }else if (res[i].isVolunteer){
-                $scope.volunteers.push(res[i]);
-            }
+          if (res[i].isCoop) {
+            $scope.coops.push(res[i]);
+          } else if (res[i].isWork) {
+            $scope.works.push(res[i]);
+          } else if (res[i].isVolunteer) {
+            $scope.volunteers.push(res[i]);
+          }
         }
         //TODO: update data to JSON file (lock file to prevent corruption)
         console.log(response);
         receivedRequest += 1;
         document.dispatchEvent(customEvent);
-        
       },
       function error(response) {
         //TODO: get data from a file
@@ -272,8 +273,7 @@ app.controller("ExperienceController", function ($scope, $http) {
       }
     );
   })();
-  }
-);
+});
 
 app.controller("ToolsController", function ($scope, $http) {
   $scope.languages = [];
@@ -289,19 +289,18 @@ app.controller("ToolsController", function ($scope, $http) {
       function success(response) {
         let res = response.data;
         for (let i = 0; i < res.length; i++) {
-            if (res[i].isLanguage){
-                $scope.languages.push(res[i]);
-            }else if (res[i].isTool){
-                $scope.tools.push(res[i]);
-            }else if (res[i].isOther){
-                $scope.concepts.push(res[i]);
-            }
+          if (res[i].isLanguage) {
+            $scope.languages.push(res[i]);
+          } else if (res[i].isTool) {
+            $scope.tools.push(res[i]);
+          } else if (res[i].isOther) {
+            $scope.concepts.push(res[i]);
+          }
         }
         receivedRequest += 1;
         document.dispatchEvent(customEvent);
         //TODO: update data to JSON file (lock file to prevent corruption)
         console.log(response);
-        
       },
       function error(response) {
         //TODO: get data from a file
@@ -324,12 +323,11 @@ app.controller("ProjectsController", function ($scope, $http) {
     }).then(
       function success(response) {
         $scope.projects = response.data;
-        
+
         //TODO: update data to JSON file (lock file to prevent corruption)
         console.log(response);
         receivedRequest += 1;
         document.dispatchEvent(customEvent);
-        
       },
       function error(response) {
         //TODO: get data from a file
@@ -342,29 +340,27 @@ app.controller("ProjectsController", function ($scope, $http) {
 });
 
 app.controller("ContactController", function ($scope, $http) {
-    $scope.contacts = [];
-    (() => {
-      $http({
-        method: "POST",
-        url: host + "/getData?db=contact",
-        data: { isActive: true },
-      }).then(
-        function success(response) {
-          $scope.contacts = response.data;
-          receivedRequest += 1;
-          contactData = response.data;
-          document.dispatchEvent(customEvent);
-          //TODO: update data to JSON file (lock file to prevent corruption)
-          console.log(response);
-          
-        },
-        function error(response) {
-          receivedRequest += 1;
-          //TODO: get data from a file
-          console.log(response);
-          document.dispatchEvent(customEvent);
-        }
-      );
-    })();
-  }
-);
+  $scope.contacts = [];
+  (() => {
+    $http({
+      method: "POST",
+      url: host + "/getData?db=contact",
+      data: { isActive: true },
+    }).then(
+      function success(response) {
+        $scope.contacts = response.data;
+        receivedRequest += 1;
+        contactData = response.data;
+        document.dispatchEvent(customEvent);
+        //TODO: update data to JSON file (lock file to prevent corruption)
+        console.log(response);
+      },
+      function error(response) {
+        receivedRequest += 1;
+        //TODO: get data from a file
+        console.log(response);
+        document.dispatchEvent(customEvent);
+      }
+    );
+  })();
+});
